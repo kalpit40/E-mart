@@ -1,0 +1,37 @@
+<!-- Below content can be done in a shared component(reusable component) and can use everywhere, but in hurry written here -->
+
+<div class="col-sm-4">
+  <div class="card" style="width: 250px; height: 350px;">
+    <img
+      class="card-img-top"
+      src="{{ 'assets/images/' + item.imageName + '.jpg' }}"
+      alt="Card image"
+      style="width: 100%; height: 150px;"
+    />
+    <div class="card-body">
+      <h4 class="card-title">{{ item.name }}</h4>
+      <p class="card-text">$ {{ item.price }}</p>
+      <div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="removeFromCart(item)"
+          >
+            -
+          </button>
+          <button type="button" class="btn btn-secondary">
+            {{ item.noOfItemsInCart }} in cart
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="addToCart(item)"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,5 +3,4 @@ export interface Item {
   name: string;
   price: number;
   noOfItemsInCart: number;
-  category: string;
 }

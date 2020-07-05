@@ -1,34 +1,51 @@
-<div *ngFor="let item of listOfItems">
-  <div class="card" style="width: 250px; height: 350px;">
-    <img
-      class="card-img-top"
-      src="assets/images/spinach.jpg"
-      alt="Card image"
-      style="width: 100%; height: 150px;"
-    />
-    <div class="card-body">
-      <h4 class="card-title">{{ item.name }}</h4>
-      <p class="card-text">$ {{ item.price }}</p>
-      <div>
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            (click)="removeFromCart(item)"
-          >
-            -
-          </button>
-          <button type="button" class="btn btn-secondary">
-            {{ item.price }} in cart
-          </button>
-          <button
-            type="button"
-            class="btn btn-secondary"
-            (click)="addToCart(item)"
-          >
-            +
-          </button>
-        </div>
+<div class="container-fluid mt-5">
+  <div class="row">
+    <!-- col-md-6 col-lg-4 -->
+    <div class="col-sm-2 p-3">
+      <div class="sidebar">
+        <a
+          [ngClass]="{ 'active-btn': category === 'all' }"
+          (click)="setCategory('all')"
+          >All Categories</a
+        >
+        <a
+          [ngClass]="{ 'active-btn': category === 'Bread' }"
+          (click)="setCategory('Bread')"
+          >Bread</a
+        >
+        <a
+          [ngClass]="{ 'active-btn': category === 'Dairy' }"
+          (click)="setCategory('Dairy')"
+          >Dairy</a
+        >
+        <a
+          [ngClass]="{ 'active-btn': category === 'Fruits' }"
+          (click)="setCategory('Fruits')"
+          >Fruits</a
+        >
+        <a
+          [ngClass]="{ 'active-btn': category === 'Spices' }"
+          (click)="setCategory('Spices')"
+          >Seasonings and Spices</a
+        >
+        <a
+          [ngClass]="{ 'active-btn': category === 'Vegetables' }"
+          (click)="setCategory('Vegetables')"
+          >Vegetables</a
+        >
+      </div>
+    </div>
+    <div class="col-sm-10 p-3">
+      <!-- <app-items> </app-items> -->
+
+      <div class="row" *ngIf="filteredItemList">
+        <app-item-details
+          *ngFor="let item of filteredItemList"
+          [item]="item"
+          (removeItemFromCart)="removeFromCart($event)"
+          (addItemToCart)="addToCart($event)"
+        >
+        </app-item-details>
       </div>
     </div>
   </div>

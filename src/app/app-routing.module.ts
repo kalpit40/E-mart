@@ -3,14 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { ItemsComponent } from './items/items.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ItemsComponent,
-  },
+  { path: 'home', component: ItemsComponent },
   {
     path: 'cart',
     loadChildren: () =>
       import('./cart-lazy/cart-lazy.module').then((m) => m.CartLazyModule),
+  },
+  {
+    path: '',
+    component: ItemsComponent,
   },
 ];
 
