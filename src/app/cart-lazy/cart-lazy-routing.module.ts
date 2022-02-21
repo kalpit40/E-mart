@@ -1,11 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { ApiCallComponent } from "./api-call/api-call.component";
+import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: ShoppingCartComponent,
+  },
+  {
+    path: "apicall",
+    component: ApiCallComponent,
   },
 ];
 
